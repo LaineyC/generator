@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="300.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lite.generator.framework.ui.group.ModuleController">
+   <children>
+      <Label layoutX="40.0" layoutY="155.0" text="模块描述：" />
+      <Label layoutX="40.0" layoutY="59.0" text="模块名称：" />
+      <TextField fx:id="moduleNameTextfield" layoutX="100.0" layoutY="55.0" prefHeight="23.0" prefWidth="500.0" promptText="模块名称" />
+      <TextField fx:id="moduleCommentTextfield" layoutX="100.0" layoutY="105.0" prefHeight="23.0" prefWidth="500.0" promptText="模块注释" />
+      <Label layoutX="40.0" layoutY="109.0" text="模块注释：" />
+      <TextArea fx:id="moduleDescriptionTextArea" layoutX="100.0" layoutY="155.0" prefHeight="100.0" prefWidth="500.0" promptText="模块描述" />
+      <ToolBar layoutX="-68.0" layoutY="6.0" prefHeight="32.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+        <items>
+          <Button fx:id="newModelButton" mnemonicParsing="false" styleClass="btn-primary" text="新建模型" />
+            <Button fx:id="newSubModuleButton" mnemonicParsing="false" styleClass="btn-primary" text="新建子模块" />
+            <Separator orientation="VERTICAL" />
+            <Button fx:id="deleteModuleButton" mnemonicParsing="false" styleClass="btn-warning" text="删除模块" />
+        </items>
+      </ToolBar>
+   </children>
+</AnchorPane>

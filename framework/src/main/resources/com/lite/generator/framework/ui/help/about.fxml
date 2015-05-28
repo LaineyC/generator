@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lite.generator.framework.ui.help.AboutDialogController">
+   <children>
+      <Label layoutX="35.0" layoutY="25.0" text="1. 基于生成结构性代码的目的开发" />
+      <Label layoutX="35.0" layoutY="50.0" text="2. 通过启动设置自定义生成器用途" />
+      <Label layoutX="350.0" layoutY="130.0" text="作者：OK哥" />
+      <Label layoutX="35.0" layoutY="100.0" text="4. 代码生成策略通过XML文件配置" />
+      <Label layoutX="35.0" layoutY="128.0" text="5. 代码文件模板采用velocity引擎" />
+      <Label layoutX="35.0" layoutY="75.0" text="3. 生成器可选择多个代码生成策略" />
+      <Label layoutX="35.0" layoutY="153.0" text="6. 日志追踪异常与模板编写错误" />
+      <ImageView fitHeight="110.0" fitWidth="110.0" layoutX="325.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="logo-image">
+         <image>
+            <Image url="logo.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

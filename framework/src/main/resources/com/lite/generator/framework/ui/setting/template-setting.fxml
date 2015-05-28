@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lite.generator.framework.ui.setting.TemplateSettingDialogController">
+   <children>
+      <TableView fx:id="templateConfigsTableView" layoutX="25.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columns>
+            <TableColumn prefWidth="50.0" text="应用" />
+          <TableColumn editable="false" prefWidth="240.0" sortable="false" text="策略文件名" />
+            <TableColumn editable="false" prefWidth="305.0" sortable="false" text="策略描述" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

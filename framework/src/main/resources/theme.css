@@ -1,0 +1,133 @@
+.root {
+    -fx-font-family: Arial, sans-serif;
+    -fx-font-size: 12px;
+    -fx-base: #3C3F41;
+    -fx-title-base: #101010;
+}
+
+.logo-image {
+    -fx-effect: dropshadow(one-pass-box , black, 25, 0, 2, 2);
+}
+
+.load {
+    -fx-background-image: url("background.jpg");
+}
+
+.load-title {
+    -fx-font-size: 36px;
+    -fx-font-family: -fx-font-family;
+    -fx-font-weight: bold;
+    -fx-effect: innershadow(three-pass-box , rgba(0 ,0, 0, 0.7) , 6, 0, 0, 2);
+}
+
+.load-text {
+    -fx-font-size: 12px;
+    -fx-font-family: -fx-font-family;
+    -fx-effect: dropshadow(one-pass-box, black, 8, 0.0, 2, 0);
+}
+
+.button {
+    -fx-focus-traversable: false;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6) , 5, 0.0 , 0 , 1 );
+}
+
+.btn-primary {
+	-fx-base: #428bca;
+}
+
+.btn-success {
+	-fx-base: #57b757;
+}
+
+.btn-info {
+	-fx-base: #41a9c9;
+}
+
+.btn-warning {
+	-fx-base: #fba71b;
+}
+
+.btn-danger {
+	-fx-base: #f3622d;
+}
+
+.line-number {
+    -fx-text-fill: #dddddd;
+}
+
+.table-row-cell:filled:selected .line-number,
+.tree-cell:filled:selected .line-number{
+    -fx-text-fill: #f0ad4e;
+}
+
+.table-view .draggable-up.table-row-cell {
+    -fx-background-insets: 0, 2 0 0 0;
+}
+
+.table-view .draggable-up.table-row-cell:empty {
+    -fx-background-insets: 0, 0;
+}
+
+.table-view .draggable-down.table-row-cell {
+    -fx-background-insets: 0, 0 0 2 0;
+}
+.table-view .draggable-down.table-row-cell:empty {
+    -fx-background-insets: 0, 0;
+}
+
+.table-view .table-row-cell {
+    -fx-background-insets: 0, 0;
+}
+
+.table-view:focused:row-selection > .virtual-flow > .clipped-container > .sheet > .table-row-cell:focused {
+    -fx-background-insets: 0, 1, 2;
+}
+
+.table-view .table-row-cell:empty .table-cell {
+    -fx-border-style: dashed;
+}
+
+.tree-view .draggable-up.tree-cell {
+    -fx-background-color: derive(-fx-color,5%), derive(-fx-base, 80%);
+    -fx-background-insets: 0, 2 0 0 0;
+}
+
+.tree-view .draggable-up.tree-cell:empty {
+    -fx-background-insets: 0;
+}
+
+.tree-view .draggable-down.tree-cell {
+    -fx-background-color: derive(-fx-color,5%), derive(-fx-base, 80%);
+    -fx-background-insets: 0, 0 0 2 0;
+}
+
+.tree-view .draggable-down.tree-cell:empty {
+    -fx-background-insets: 0;
+}
+
+.title-pane {
+    -fx-base: -fx-title-base;
+}
+
+.dialog {
+    -fx-border-color: -fx-background;
+    -fx-border-insets: 1;
+    -fx-border-radius: 8 8 0 0;
+    -fx-background-color: transparent, -fx-base, -fx-background;
+    -fx-background-insets: -5, 0, 2;
+    -fx-background-radius: 8 8 0 0, 8 8 0 0, 8 8 0 0;
+}
+
+.dialog-title-pane {
+    -fx-base: -fx-title-base;
+    -fx-outer-border: derive(-fx-color, -23%);
+    -fx-background-color:
+        linear-gradient(to bottom, derive(-fx-base, 75%) 0%, -fx-outer-border 90%),
+        linear-gradient(to bottom, derive(-fx-base, 46.9%) 2%, derive(-fx-base, -2.1%) 95%);
+    -fx-background-radius: 8 8 0 0;
+}
+
+.dialog-content-pane {
+
+}

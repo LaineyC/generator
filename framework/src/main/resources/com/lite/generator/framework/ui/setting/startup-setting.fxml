@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lite.generator.framework.ui.setting.StartUpSettingDialogController">
+   <children>
+      <TableView fx:id="propertyFeaturesTableView" editable="true" layoutX="14.0" layoutY="14.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columns>
+            <TableColumn editable="false" prefWidth="20.0" sortable="false" text="#" />
+          <TableColumn prefWidth="100.0" sortable="false" text="名称" />
+          <TableColumn prefWidth="100.0" sortable="false" text="注释（列标题）" />
+            <TableColumn prefWidth="75.0" sortable="false" text="显示宽度" />
+            <TableColumn prefWidth="75.0" sortable="false" text="输入类型" />
+            <TableColumn prefWidth="75.0" sortable="false" text="默认值" />
+            <TableColumn prefWidth="200.0" sortable="false" text="验证脚本（EL表达式）" />
+            <TableColumn prefWidth="200.0" sortable="false" text="验证提示" />
+            <TableColumn prefWidth="305.0" sortable="false" text="参考值" />
+        </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" text="添加单个属性描述" />
+                  <MenuItem mnemonicParsing="false" text="添加多个属性描述" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="删除选中属性描述" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+   </children>
+</AnchorPane>

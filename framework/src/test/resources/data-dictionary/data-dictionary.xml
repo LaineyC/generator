@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-config description="数据字典">
+    <file name="index.html" template="data-dictionary/index.vm">
+        <template-context var="config" value="${config}"/>
+        <template-context var="project" value="${project}"/>
+    </file>
+    <function name="groupHtml" argument1="group">
+        <file name="group/${group.id}.html" template="data-dictionary/group.vm">
+            <template-context var="config" value="${config}"/>
+            <template-context var="group" value="${group}"/>
+        </file>
+        <foreach item="child" items="${group.children}">
+            <call function="groupHtml" argument1="${child}"/>
+        </foreach>
+    </function>
+    <call function="groupHtml" argument1="${project}"/>
+</template-config>

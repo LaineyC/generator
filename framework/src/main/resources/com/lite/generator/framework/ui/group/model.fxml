@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lite.generator.framework.ui.group.ModelController">
+   <children>
+      <TextField fx:id="modelCommentTextfield" layoutX="100.0" layoutY="105.0" prefHeight="23.0" prefWidth="500.0" promptText="模型注释" />
+      <Label layoutX="40.0" layoutY="59.0" text="模型名称：" />
+      <TextField fx:id="modelNameTextfield" layoutX="100.0" layoutY="55.0" prefHeight="23.0" prefWidth="500.0" promptText="模型名称" />
+      <TextArea fx:id="modelDescriptionTextArea" layoutX="100.0" layoutY="155.0" prefHeight="100.0" prefWidth="500.0" promptText="模型描述" />
+      <TableView fx:id="modelPropertiesTableView" editable="true" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="275.0">
+         <contextMenu>
+            <ContextMenu styleClass="content-pane">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="添加单个属性" />
+                  <MenuItem mnemonicParsing="false" text="添加多个属性" />
+                  <MenuItem mnemonicParsing="false" text="添加快捷属性" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="撤销  Ctrl+Z" />
+                  <MenuItem mnemonicParsing="false" text="重做  Ctrl+Shift+Z" />
+                  <MenuItem mnemonicParsing="false" text="删除属性  Ctrl+D" />
+               </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+      <ToolBar layoutX="14.0" layoutY="14.0" prefHeight="32.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+         <items>
+            <Button fx:id="addPropertyButton" mnemonicParsing="false" styleClass="btn-primary" text="单个属性" />
+            <Button fx:id="addQuickPropertiesButton" mnemonicParsing="false" styleClass="btn-primary" text="快捷属性" />
+            <Separator orientation="VERTICAL" />
+            <Button fx:id="deleteModelButton" mnemonicParsing="false" styleClass="btn-warning" text="删除模型" />
+         </items>
+      </ToolBar>
+      <Label layoutX="40.0" layoutY="155.0" text="模型描述：" />
+      <Label layoutX="40.0" layoutY="109.0" text="模型注释：" />
+   </children>
+</AnchorPane>

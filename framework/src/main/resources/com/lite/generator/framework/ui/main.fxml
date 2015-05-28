@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" stylesheets="theme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lite.generator.framework.ui.MainController">
+   <children>
+      <MenuBar fx:id="menuBar" layoutX="14.0" layoutY="14.0" prefHeight="25.0" styleClass="title-pane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="文件">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="保存配置" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="退出" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="工具">
+               <items>
+                  <Menu mnemonicParsing="false" text="代码生成">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="生成代码" />
+                        <MenuItem mnemonicParsing="false" text="浏览代码" />
+                        <MenuItem mnemonicParsing="false" text="清空代码" />
+                     </items>
+                  </Menu>
+                  <MenuItem mnemonicParsing="false" text="控制台" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="设置">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="启动设置" />
+                  <MenuItem mnemonicParsing="false" text="快捷设置" />
+                  <MenuItem mnemonicParsing="false" text="生成设置" />
+                  <MenuItem mnemonicParsing="false" text="模板设置" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="帮助">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="教程" />
+                  <MenuItem mnemonicParsing="false" text="关于" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <SplitPane fx:id="splitPane" dividerPositions="0.16666667" layoutX="189.0" layoutY="104.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="26.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TreeView fx:id="projectTreeView" layoutX="-11.0" layoutY="22.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                     <contextMenu>
+                        <ContextMenu />
+                     </contextMenu>
+                  </TreeView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TabPane fx:id="groupsTabPane" layoutX="31.0" layoutY="14.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

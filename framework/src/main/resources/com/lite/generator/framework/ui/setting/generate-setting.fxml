@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lite.generator.framework.ui.setting.GenerateSettingDialogController">
+   <children>
+      <Label layoutX="41.0" layoutY="21.0" text="生成路径：" />
+      <TextField fx:id="generatePathTextField" layoutX="101.0" layoutY="17.0" prefHeight="23.0" prefWidth="400.0" promptText="代码生成路径" />
+      <Button fx:id="generatePathBrowseButton" layoutX="506.0" layoutY="17.0" mnemonicParsing="false" text="浏览" />
+      <Label layoutX="41.0" layoutY="59.0" text="生成分组：" />
+      <TreeView fx:id="projectTreeView" layoutX="101.0" layoutY="59.0" prefHeight="425.0" prefWidth="400.0" />
+   </children>
+</AnchorPane>

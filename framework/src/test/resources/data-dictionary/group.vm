@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>${group.name}</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <style>
+        .line-number {
+            width: 20px;
+            text-align: right;
+        }
+        .group-name {
+            font-weight: bold;
+            color: #428bca;
+        }
+    </style>
+</head>
+<body>
+    <table class="table table-hover table-bordered" style="margin-top: 5px;">
+        <thead>
+        <tr><th class="text-right" style="width: 100px;">名称:</th><td class="text-left group-name">$!group.name</td></tr>
+        <tr><th class="text-right" style="width: 100px;">注释:</th><td class="text-left">$!group.comment</td></tr>
+        <tr><th class="text-right" style="width: 100px;">描述:</th><td class="text-left">$!group.description</td></tr>
+        </thead>
+    </table>
+#if($group.properties)
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th class="line-number">#</th>
+            #foreach($propertyFeature in $config.propertyFeatures)
+                <th class="text-center" style="width:$!{propertyFeature.viewWidth}px;">$!propertyFeature.comment</th>
+            #end
+            </tr>
+        </thead>
+        <tbody>
+    #foreach($property in $group.properties)
+        <tr>
+            <td class="line-number">$velocityCount</td>
+        #foreach($propertyFeature in $config.propertyFeatures)
+            #if($!propertyFeature.type == "Boolean")
+                <td class="text-center">
+                    <input onclick="return false;" type="checkbox" #if($!property.get($propertyFeature.name).value) checked #else #end/>
+                #if($!propertyFeature.referenceValues && $!propertyFeature.referenceValues != "")
+                    $!propertyFeature.converter.toString( $!property.get($propertyFeature.name).value, $!propertyFeature.referenceValues.split(",") )
+                #else
+                #end
+                </td>
+            #elseif($!propertyFeature.type == "Date" || $!propertyFeature.type == "Enum")
+                <td class="text-center">$!propertyFeature.converter.toString( $!property.get($propertyFeature.name).value )</td>
+            #elseif($!propertyFeature.type == "Integer" || $!propertyFeature.type == "Double")
+                <td class="text-right">$!propertyFeature.converter.toString( $!property.get($propertyFeature.name).value )</td>
+            #elseif($!propertyFeature.type == "Group")
+                #set($group =  $!property.get($propertyFeature.name).value)
+                <td class="text-left">
+                    <a onclick="window.parent.window.showGroup({
+                        id: '$group.id',
+                        name: '$group.name',
+                        icon: '$group.getClass().getSimpleName().toLowerCase()'
+                    });" href="javascript:void(0);" class="group-name">
+                        $group.name
+                    </a>
+                </td>
+            #else
+                <td class="text-left">$!propertyFeature.converter.toString( $!property.get($propertyFeature.name).value )</td>
+            #end
+        #end
+        </tr>
+    #end
+        </tbody>
+    </table>
+#end
+</body>
+</html>

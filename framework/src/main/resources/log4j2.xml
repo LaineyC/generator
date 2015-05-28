@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="OFF">
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout charset="UTF-8" pattern="[%p][%d{yyyy-MM-dd HH:mm:ss}]%m%n"/>
+        </Console>
+        <RollingFile name="RollingFile" fileName="logs/log.log" filePattern="logs/$${date:yyyy-MM}/%d{yyyy-MM-dd}.%i.log.gz" append="true">
+            <PatternLayout charset="UTF-8" pattern="[%p][%d{yyyy-MM-dd HH:mm:ss}]%m%n"/>
+            <SizeBasedTriggeringPolicy size="100 KB"/>
+        </RollingFile>
+    </appenders>
+    <loggers>
+        <logger name="com.lite.generator.framework.util.LogUtil" level="info" additivity="false">
+            <appender-ref ref="RollingFile"/>
+            <appender-ref ref="Console"/>
+        </logger>
+        <root level="info">
+            <appender-ref ref="Console"/>
+        </root>
+    </loggers>
+</configuration>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>数据字典</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="jquery/jquery.min.js"></script>
+    <script src="angular/angular.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        html, body {
+            padding-top: 4px;
+        }
+        .tree li {
+            padding: 5px 10px;
+        }
+        .tree li:hover {
+            cursor: pointer;
+            background-color: #eeeeee;
+        }
+        .tree ul {
+            margin: 5px 0px;
+        }
+        .nav > li > a {
+            padding: 5px 10px;
+        }
+    </style>
+    #set($json = '')
+    #set($first = true)
+    #set($level = 1)
+    #macro(groupJson $group, $lv)
+        #if($level < $lv)
+            #set($level = $lv)
+        #end
+        #if(!$first)
+            #set($json = $json + ",")
+        #end
+        #set($json = $json +
+            '{' +
+                'id: "' + $group.id + '",' +
+                'name: "' + $group.name + '",' +
+                'expanded: true,' +
+                'icon: "' + $group.getClass().getSimpleName().toLowerCase() + '",' +
+                'children: ['
+        )
+        #set($lvl = $lv + 1)
+        #foreach($child in $group.children)
+            #set($first = $velocityCount == 1)
+            #groupJson($child, $lvl)
+        #end
+        #set($lvl = $lvl - 1)
+        #set($json = $json +
+                ']' +
+            '}'
+        )
+    #end
+    #groupJson($project, $level)
+
+    #set($l = 1)
+    #macro(groupHtml)
+        <ul ng-if="group.children.length" class="list-group" ng-class="{hidden: !group.expanded}">
+            <li class="list-group-item" ng-repeat="group in group.children track by $index">
+                <div ng-click="group.expanded=!group.expanded" ng-dblclick="showGroup(group)">
+                    <span ng-if="group.children.length" class="glyphicon" ng-class="group.expanded ? 'glyphicon-minus' : 'glyphicon-plus'"></span>
+                    <span ng-if="!group.children.length" class="glyphicon glyphicon-unchecked"></span>
+                    <img ng-src="image/{{group.icon}}.png"/> {{group.icon == "project" ? " " : $index + 1}} {{group.name}}
+                </div>
+        #if($level > $l)
+            #set($l = $l + 1)
+            #groupHtml()
+        #end
+            </li>
+        </ul>
+    #end
+    <script type="text/javascript">
+        (function($, angular, undefined){
+            $(function(){
+                var module = angular.module("module", []);
+                module.controller("controller", ["$scope",
+                    function($scope) {
+                        $scope.groupTab = [];
+                        $scope.group = {
+                            expanded: true,
+                            children: [$json]
+                        }
+                        $scope.showGroup = function(group){
+                            var i = -1;
+                            angular.forEach($scope.groupTab, function(tab, index){
+                                if(tab.id === group.id) {
+                                    i = index;
+                                }
+                                tab.active = false;
+                            });
+                            if(i != -1){
+                                $scope.groupTab.splice(i, 1);
+                            }
+                            var tab = {
+                                id: group.id,
+                                name: group.name,
+                                icon: group.icon,
+                                template: "group/" + group.id + ".html"
+                            };
+                            $scope.groupTab.splice(0, 0, tab);
+                            $scope.groupTab[0].active = true;
+                            if($scope.groupTab.length >= 25){
+                                $scope.groupTab.length = 25;
+                            }
+                        };
+                        $scope.showGroup($scope.group.children[0]);
+                        window.showGroup = function(group){
+                            $scope.$apply(function(){
+                                $scope.showGroup(group);
+                            });
+                        };
+                    }
+                ]);
+                angular.bootstrap(document, ["module"]);
+            });
+        })(jQuery, angular);
+    </script>
+</head>
+<body ng-controller="controller">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 tree">
+                #groupHtml()
+            </div>
+            <div class="col-sm-9">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li ng-repeat="tab in groupTab track by $index" ng-class="{active:tab.active}" role="presentation">
+                        <a href="#{{tab.id}}" role="tab" data-toggle="tab"><img ng-src="image/{{tab.icon}}.png"/> {{tab.name}}</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="{{tab.id}}" ng-repeat="tab in groupTab track by $index" ng-class="{active:tab.active}" class="tab-pane" role="tabpanel">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="{{tab.template}}"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
