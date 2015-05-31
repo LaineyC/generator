@@ -6,7 +6,7 @@ public class ReturnTag extends Tag {
 
     @Override
     public void execute(Context context) {
-        throw new BreakException();
+        throw new ReturnException();
     }
 
 }
