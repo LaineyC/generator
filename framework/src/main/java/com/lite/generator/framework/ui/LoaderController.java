@@ -3,7 +3,7 @@ package com.lite.generator.framework.ui;
 import javafx.fxml.FXML;
 import javafx.scene.control.ProgressBar;
 
-public class LoaderController extends BaseController<BaseController, LoderControllerInterface> implements LoderControllerInterface {
+public class LoaderController extends BaseController<BaseController, LoaderControllerInterface> implements LoaderControllerInterface {
 
     @FXML
     private ProgressBar loadProgressBar;

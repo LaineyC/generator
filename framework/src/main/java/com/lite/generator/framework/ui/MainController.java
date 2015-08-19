@@ -437,7 +437,7 @@ public class MainController extends BaseController<BaseController, MainControlle
                 ControlTool.messageTooltip("代码生成路径不存在！", Application.getWindow());
                 return;
             }
-            if(config.getGeneratePath() == null){
+            if(config.getTemplateConfig() == null){
                 ControlTool.messageTooltip("未选择生成策略文件！", Application.getWindow());
                 return;
             }

@@ -124,7 +124,7 @@ public class Application extends javafx.application.Application{
                 return null;
             },
             (e) -> {
-                File logFile = new File(SystemVariable.logPath + SystemVariable.fileSeparator  + "application.log");
+                File logFile = new File(SystemVariable.logPath + SystemVariable.fileSeparator  + "log.log");
                 try {
                     Desktop.getDesktop().open(logFile);
                 }
