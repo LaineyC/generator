@@ -9,6 +9,7 @@ import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 
 import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Map;
@@ -34,9 +35,12 @@ public class TemplateTool {
             dataMap.forEach((k, v) -> context.put(k, v));
             StringWriter writer = new StringWriter();
             t.merge(context, writer);
-            PrintWriter fileWriter = new PrintWriter(new FileOutputStream(outFile), true);
-            fileWriter.println(writer.toString());
-            fileWriter.close();
+            FileOutputStream fos = new FileOutputStream(outFile);
+            PrintStream ps = new PrintStream(fos, true, "UTF-8");
+            ps.print(writer.toString());
+            ps.flush();
+            ps.close();
+            fos.close();
         }
         catch(Exception exception){
             throw new RuntimeException("加载模板失败", exception);
